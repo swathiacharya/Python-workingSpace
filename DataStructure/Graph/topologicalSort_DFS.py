@@ -55,14 +55,4 @@ if __name__ == '__main__':
        graph.createGraph(u,v)
    graph.topologicalSort()
 
-    def path(self, to):
-        v = to
-        arr =[]
-        while v is not None:
-            arr.append(v)
-            v = self.parent[v]
-        arr.reverse()
-        for node in arr:
-            print('{} ---> '.format(node), end ='')
-        print('* End *')
-
+    
