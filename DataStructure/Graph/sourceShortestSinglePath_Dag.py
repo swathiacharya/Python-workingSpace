@@ -1,4 +1,5 @@
-def __init__(self, nodes):
+class Graph:
+    def __init__(self, nodes):
         self.nodes = nodes
         self.allEdges = dict()
         self.parent = dict()
@@ -8,10 +9,6 @@ def __init__(self, nodes):
             self.allEdges[node] = {}
             self.parent[node] =[]
             self.distance[node] = 999
-
-
-
-
     def createGraph(self, u, v, w):
         dic = {v : w}
         self.allEdges[u].update(dic)
