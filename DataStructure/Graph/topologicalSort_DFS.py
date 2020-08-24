@@ -1,4 +1,5 @@
-def __init__(self, nodes):
+class Graph:
+    def __init__(self, nodes):
         self.nodes = nodes
         self.allEdges = dict()
         self.visited = dict()
