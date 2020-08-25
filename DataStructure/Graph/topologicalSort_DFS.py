@@ -13,27 +13,22 @@ class Graph:
             self.allEdges[node] = []
             self.parent[node] =[]
             self.visited[node] = False
-
-
     def topologicalUtil(self, node):
         if not self.visited[node]:
             self.visited[node] = True
             self.stack.append(node)
             for adjnode in self.allEdges[node]:
-                    self.parent[adjnode].append(node)
-                    self.topologicalUtil(adjnode)
+                self.parent[adjnode].append(node)
+                self.topologicalUtil(adjnode)
             else:
 #                 pop = self.stack.pop()
                 self.arr.append(self.stack.pop())
 #                 return
-            self.allEdges[node] = {}
-            self.parent[node] = None
-            self.distance[node] = 999
 
 
-    def createGraph(self, u, v, w):
-        dic = {v : w}
-        self.allEdges[u].update(dic)
+    def createGraph(self, u, v):
+        
+        self.allEdges[u].append(v)
 
 
     def topologicalSort(self):
@@ -45,8 +40,9 @@ class Graph:
 
   
 if __name__ == '__main__':
-   nodes = ['A', 'B', 'C']
-   allEdges = [('A','C'), ('B','C')]
+   nodes = ['A', 'B', 'C','D', 'E']
+   allEdges = [('A', 'B'), ('A', 'D'), ('B', 'C'), ('B', 'E'), ('C', 'E'), ('D', 'E')]
+#    allEdges = [('A','C'), ('B','C')]
 #    nodes = ['A', 'B', 'C', 'D', 'E']
 #    allEdges = [('A','C'), ('B','C'), ('B','D'), ('C','E'), ('D','E')]
 #    nodes = ['A', 'B', 'C', 'D', 'E', 'F']
@@ -55,5 +51,3 @@ if __name__ == '__main__':
    for u, v in allEdges:
        graph.createGraph(u,v)
    graph.topologicalSort()
-
-    
