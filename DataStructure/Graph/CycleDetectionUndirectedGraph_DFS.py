@@ -36,7 +36,7 @@ class Graph:
             if node in self.allEdge[node]:
                 self.flagCycle = True
                 print(self.flagCycle)
-                break
+                self.count = self.count + 1
         self.cycleDetectionUndirectedUtil(s)
         if(self.flagCycle):
             print('CYCLE IS PRESENT')
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 #     allEdge = [('A', 'B'), ('A', 'C'), ('C', 'D'), ('D','A'),('B', 'C'), ('B', 'D')]
 #     node = ['A', 'B', 'C', 'D','E']
 #     allEdge = [('A', 'B'), ('A', 'C'), ('A', 'D'), ('B', 'C'), ('B', 'E'), ('C', 'D'), ('C', 'E'), ('D', 'E')]
-    allEdge = [('A', 'B'), ('B', 'C'), ('C', 'D'), ('D', 'A'), ('A','D')]
+    allEdge = [('A', 'B'), ('B', 'C'), ('C', 'D'), ('D', 'A'), ('A','D'),('A','A')]
     
     graph = Graph(node)
     for u, v in allEdge:
