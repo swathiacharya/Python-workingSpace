@@ -105,4 +105,3 @@ if __name__ == "__main__" :
     
     sll.onIndex(3, Node('specifiedIndex'))
     sll.printf()
-    
