@@ -28,7 +28,10 @@ class Graph:
             self.printArr.append(v)
             v = self.parent[v]
         self.printArr.reverse()
-        print(adjNodeRep --->)   
+        print('{} --->'.format(adjNodeRep),end = '')
+        for node in self.printArr:
+            print('{} --->'.format(node),end = '')
+        print('Cyclic',self.count)
         self.printArr.clear()
 
             
@@ -43,7 +46,6 @@ class Graph:
             elif self.visited[adjnode] == 0:
                 self.flagCycle = True
                 self.count = self.count + 1
-                print("adj", adjnode)
                 self.path(node, adjnode)
                  
         else:            
@@ -51,11 +53,12 @@ class Graph:
                
                 
     def cycleDetectionDirected(self):
-        s= 'A'
-        self.parent[s] = None
-        self.visited[s] = 0
-        self.stack.append(s)
-        self.cycleDetectionDirectedUtil(s)
+        for node in self.nodes:
+            s= node
+            self.parent[s] = None
+            self.visited[s] = 0
+            self.stack.append(s)
+            self.cycleDetectionDirectedUtil(s)
         if self.flagCycle:
             print("CYCLIC")
             print(self.count)
@@ -65,6 +68,7 @@ if __name__ == '__main__':
     node = ['A', 'B', 'C', 'D','E']
 #     allEdge = [('A', 'B'), ('B', 'C'), ('C', 'D'), ('D', 'A'), ('D','B')]
     allEdge = [('A', 'B'), ('B', 'C'), ('B', 'D'), ('D', 'E'), ('E', 'B'), ('C', 'A')]
+#     allEdge = [('A', 'B'), ('B', 'C'), ('B', 'D'),('C', 'A'),('C', 'D'),('C', 'E'),('D', 'E'),('E', 'B')]
     graph = Graph(node)
     
     for u, v in allEdge:
