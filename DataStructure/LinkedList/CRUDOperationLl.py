@@ -34,6 +34,27 @@ class SinglelinkedList:
             self.tail = node
             temp.next = node
             temp = temp.next
+         
+     '''
+         def append(self, *argvNode):
+        temp = self.head
+        tail = self.tail
+        
+        if temp.next is None:
+            for node in argvNode:
+                temp.next = node
+                temp = temp.next
+
+            self.tail =temp
+        print(self.head)
+        print(self.tail)
+        else:    
+            for node in argvNode:
+                self.tail.next = node
+                self.tail = node
+
+            
+     '''
 
     ''' BEGINNING INSERTION '''
     def add(self, *arg):
@@ -105,3 +126,7 @@ if __name__ == "__main__" :
     
     sll.onIndex(3, Node('specifiedIndex'))
     sll.printf()
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b4aea26677c10e1c70ba02ec6335ef63ad32be53
